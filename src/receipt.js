@@ -33,7 +33,7 @@ module.exports = function createReceipt(printer){
     printer.dashedLine()
     .tableRow([
       { text: 'Total', width: 0.3 },
-      { text: ': ' + data.total}
+      { text: ': ' + data.total, align: 'RIGHT'}
     ])
     .feed(3)
     .cut();
