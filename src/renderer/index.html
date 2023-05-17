@@ -245,6 +245,22 @@
               data[name] = p.value;
             }
           });
+          data["order"] = {
+            name: "Order Receipt",
+            address: "경남 김김ㄱ미기미미해시 창산소아ㅓ마ㅓㄴㅇㄹ",
+            phone: "010-1100-2200",
+            rgd: "2023.05.17 11:59",
+            foods: [
+              {food_name: "Food 1",
+              total_price: "10$", 
+              quantity: "2"},
+              {food_name: "Food 1",
+              total_price: "10$", 
+              quantity: "2"},
+            ],
+            total: "20$"
+            
+          }
           console.log(channelName);
           console.log(data);
           PrinterApi.request(PrinterApi.channels[channelName], data);

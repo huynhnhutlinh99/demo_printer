@@ -1,9 +1,11 @@
 module.exports = function action_printUSB(deviceInfo){
-
+  //console.log(deviceInfo);
   let { path = '0.0', width = 42, autoFind = true } = deviceInfo;
   let device;
-
+  let data = deviceInfo.order;
+  //console.log(data);
   width = +width;
+
   const Printer = require('./printer');
 
   if (autoFind){
@@ -20,10 +22,10 @@ module.exports = function action_printUSB(deviceInfo){
     device = new Printer.USB(vid, pid);
   }
 
-  let printer = new Printer(device, { width });
+  let printer = new Printer(device, { width}, data);
 
   device.open(function(){
-
+    //console.log(printer);
     require('./receipt')(printer);
     
     setTimeout(function(){

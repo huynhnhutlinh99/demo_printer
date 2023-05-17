@@ -13,7 +13,7 @@ function textLength(text, encode){
   return Buffer.byteLength(encoding(text.toString(), encode));
 }
 
-function Printer(device, options){
+function Printer(device, options, dataReceipt){
   
   if (typeof device.write !== 'function'){
     throw new Error('Device must be a write function.');
@@ -30,7 +30,8 @@ function Printer(device, options){
   this.encoding = '';
 
   this._size = [ 0, 0 ];
-
+  this.data = dataReceipt;
+  //console.log(this.data);
 }
 
 Printer.Chars = {
@@ -99,7 +100,7 @@ Printer.prototype.newLine = function(){
 
 Printer.prototype.text = function(text, encode){
   this.buffer.write(encoding(text, encode || this.encoding));
-  console.log(this)
+  // console.log(this)
   return this;
 };
 

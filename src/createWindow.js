@@ -16,7 +16,7 @@ module.exports = function createWindow(finishLoad_callback){
   });
 
   mainWindow.menuBarVisible = false;
-
+  mainWindow.webContents.openDevTools()
   mainWindow.loadFile(path.join(__dirname, 'renderer', 'index.html'));
   mainWindow.webContents.on('did-finish-load', finishLoad_callback || (() => {}));
 
